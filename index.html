@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KUKURYDZA — fasada ziarna</title>
+  <meta name="description" content="Kolba jako architektura. Showcase skilla Impeccable: kukurydza widziana jak budynek o zmierzchu." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!--
+    THESIS: Corn is a building: the first viewport is a wall of kernels, not a farm hero.
+    OWN-WORLD: Dusk enamel facade — charcoal ground, lacquered gold kernels as lit windows, husk cream peel, leaf-green seams, orange bloom.
+    STORY: Visitor feels the cob as architecture, scrolls to light rows, understands this page is an Impeccable craft demo.
+    FIRST VIEWPORT: Edge-to-edge kernel grid; husk peels to a dark void with KUKURYDZA + one line + one glowing kernel CTA.
+    FORM: Kernel Facade · composition B (Grid) · seed d158c08c · candidate 7.
+    FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+  -->
+
+  <a class="skip" href="#glowna">Pomiń do treści</a>
+
+  <header class="top">
+    <a class="mark" href="#glowna" aria-label="Kukurydza, początek">
+      <svg class="mark__icon" viewBox="0 0 32 40" aria-hidden="true">
+        <path d="M16 2c-3 6-8 10-8 20 0 8 4 14 8 16 4-2 8-8 8-16 0-10-5-14-8-20z" fill="currentColor"/>
+        <path d="M12 8c1 4 1 10 0 16M20 8c-1 4-1 10 0 16M16 6v28" stroke="#1A1208" stroke-width="1.2" fill="none" opacity=".35"/>
+      </svg>
+      <span>KUKURYDZA</span>
+    </a>
+    <nav class="nav" aria-label="Główne">
+      <a href="#fasada">Fasada</a>
+      <a href="#rzedy">Rzędy</a>
+      <a href="#dowod">Dowód</a>
+    </nav>
+  </header>
+
+  <main id="glowna">
+    <section class="hero" aria-label="Wejście">
+      <div class="hero__stage" data-hero-stage>
+        <img
+          class="hero__photo"
+          src="assets/hero-kernel-facade.webp"
+          alt=""
+          width="1920"
+          height="1080"
+          decoding="async"
+          fetchpriority="high"
+        />
+        <canvas class="hero__grid" data-kernel-canvas aria-hidden="true"></canvas>
+        <div class="hero__husk hero__husk--left" data-husk></div>
+        <div class="hero__husk hero__husk--right" data-husk></div>
+        <div class="hero__void">
+          <p class="hero__brand">KUKURYDZA</p>
+          <h1 class="hero__title">Ściana ziaren.<br />Budynek z pola.</h1>
+          <p class="hero__lede">Każde ziarno to komórka fasady. Scroll zapala rzędy jak okna o zmierzchu.</p>
+          <a class="kernel-cta" href="#dowod">
+            <span class="kernel-cta__glow" aria-hidden="true"></span>
+            <span class="kernel-cta__label">Wejdź w kolbę</span>
+          </a>
+        </div>
+      </div>
+      <p class="hero__hint" aria-hidden="true">Przewiń, żeby zapalić rzędy</p>
+    </section>
+
+    <section class="band band--anatomy" id="fasada">
+      <div class="band__inner">
+        <h2 class="band__title">Fasada, nie pejzaż</h2>
+        <p class="band__text">
+          Typowa strona o kukurydzy pokazuje pole o zachodzie. Ta nie.
+          Kolba stoi frontalnie, jak elewacja: moduł, rytm, światło w komórkach.
+          To samo ziarno, które jesz, jest tu jednostką architektury.
+        </p>
+        <ul class="facts" role="list">
+          <li>
+            <strong>800+</strong>
+            <span>ziaren na przeciętnej kolbie — tyle „okien” ma jedna fasada</span>
+          </li>
+          <li>
+            <strong>16</strong>
+            <span>rzędów wokół rdzenia — konstrukcja, nie dekoracja</span>
+          </li>
+          <li>
+            <strong>Zea mays</strong>
+            <span>gatunek, który zbudował cywilizacje, zanim zbudował strony</span>
+          </li>
+        </ul>
+        <p class="note">Liczby poglądowe, na potrzeby demonstracji designu — nie raport agronomiczny.</p>
+      </div>
+    </section>
+
+    <section class="band band--rows" id="rzedy" data-rows>
+      <div class="rows-stage">
+        <div class="rows-copy">
+          <h2 class="band__title">Rzędy zapalają się z scrolla</h2>
+          <p class="band__text">
+            Poniżej: żywa fasada. Im głębiej schodzisz, tym więcej komórek
+            dostaje emaliowany blask — jakby ktoś włączał światła piętro po piętrze.
+          </p>
+        </div>
+        <div class="live-facade" data-live-facade aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="band band--sense">
+      <div class="band__inner band__inner--split">
+        <div>
+          <h2 class="band__title">Skóra, nie stock</h2>
+          <p class="band__text">
+            Emalia ziarna. Matowa łuska. Ciepły bloom w komórce.
+            Materiał strony bierze się z kolby, nie z „agri gradientu”.
+          </p>
+        </div>
+        <dl class="materials">
+          <div>
+            <dt>Emalia</dt>
+            <dd>lakierowane złoto komórki, #F2C14E</dd>
+          </div>
+          <div>
+            <dt>Bloom</dt>
+            <dd>pomarańcz zmierzchu w oknie, #E85D04</dd>
+          </div>
+          <div>
+            <dt>Łuska</dt>
+            <dd>papierowy krem osłony, #F7F1E1</dd>
+          </div>
+          <div>
+            <dt>Szczelina</dt>
+            <dd>zieleń liścia między rzędami, #3D6B2F</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="band band--proof" id="dowod">
+      <div class="band__inner">
+        <h2 class="band__title">To jest showcase skilla</h2>
+        <p class="band__text">
+          Strona istnieje, żeby pokazać, co robi <em>Impeccable</em> w Cursorze:
+          jeden świat wizualny, kompozycja do bólu, zero agri-szablonu.
+          Tematem jest kukurydza. Dowodem jest to, jak ją widzisz.
+        </p>
+        <div class="proof-grid">
+          <article>
+            <h3>Świat</h3>
+            <p>Kernel Facade — kolba jako budynek, nie jako plon na stocku.</p>
+          </article>
+          <article>
+            <h3>Kompozycja</h3>
+            <p>Pełna ściana ziaren, łuska rozchylona, marka w czarnej dziurze.</p>
+          </article>
+          <article>
+            <h3>Ruch</h3>
+            <p>Scroll jako włącznik świateł w fasadzie — jedna intencja, nie confetti.</p>
+          </article>
+        </div>
+        <a class="kernel-cta kernel-cta--inline" href="#glowna">
+          <span class="kernel-cta__glow" aria-hidden="true"></span>
+          <span class="kernel-cta__label">Wróć na fasadę</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p><strong>KUKURYDZA</strong> · przedstawienie skilla Impeccable</p>
+    <p>Zbudowane lokalnie jako static HTML/CSS/JS. Bez farmowego funnela.</p>
+  </footer>
+
+  <script src="js/main.js" type="module"></script>
+</body>
+</html>
