@@ -8,13 +8,13 @@ export default function HuskPeel() {
     offset: ["start start", "end end"],
   });
 
-  const leftX = useTransform(scrollYProgress, [0, 0.7], ["0%", "-78%"]);
-  const rightX = useTransform(scrollYProgress, [0, 0.7], ["0%", "78%"]);
-  const leftRot = useTransform(scrollYProgress, [0, 0.7], [0, -11]);
-  const rightRot = useTransform(scrollYProgress, [0, 0.7], [0, 11]);
-  const reveal = useTransform(scrollYProgress, [0.15, 0.55], [0, 1]);
-  const scale = useTransform(scrollYProgress, [0, 0.7], [0.92, 1.05]);
-  const glow = useTransform(scrollYProgress, [0.2, 0.8], [0.2, 1]);
+  const leftX = useTransform(scrollYProgress, [0, 0.75], ["0%", "-88%"]);
+  const rightX = useTransform(scrollYProgress, [0, 0.75], ["0%", "88%"]);
+  const leftRot = useTransform(scrollYProgress, [0, 0.75], [0, -14]);
+  const rightRot = useTransform(scrollYProgress, [0, 0.75], [0, 14]);
+  const reveal = useTransform(scrollYProgress, [0.22, 0.58], [0, 1]);
+  const scale = useTransform(scrollYProgress, [0, 0.75], [0.88, 1.08]);
+  const glow = useTransform(scrollYProgress, [0.15, 0.75], [0.35, 1]);
 
   return (
     <section className="peel" id="peel" ref={ref}>
@@ -24,7 +24,7 @@ export default function HuskPeel() {
           style={{ scale, opacity: glow }}
           aria-hidden="true"
         >
-          {Array.from({ length: 48 }).map((_, i) => (
+          {Array.from({ length: 70 }).map((_, i) => (
             <span key={i} className="peel__kernel" style={{ "--i": i }} />
           ))}
         </motion.div>
