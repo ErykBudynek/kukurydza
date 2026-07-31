@@ -92,19 +92,6 @@ em {
   pointer-events: none;
 }
 
-.cursor-glow {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 70;
-  background: radial-gradient(circle, color-mix(in oklab, var(--kernel) 55%, transparent), transparent 70%);
-  mix-blend-mode: screen;
-}
-
 .top {
   position: fixed;
   inset: 0 0 auto;
@@ -799,6 +786,287 @@ em {
   font-size: 0.88rem;
 }
 
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 36px;
+  border-radius: 42% 42% 38% 38% / 52% 52% 42% 42%;
+  pointer-events: none;
+  z-index: 70;
+  background: radial-gradient(120% 90% at 35% 25%, #ffe08a, var(--kernel) 55%, var(--bloom));
+  box-shadow: 0 0 22px color-mix(in oklab, var(--bloom) 55%, transparent);
+  mix-blend-mode: screen;
+}
+
+.cursor-glow.is-hot {
+  box-shadow: 0 0 34px color-mix(in oklab, var(--bloom) 75%, transparent);
+}
+
+html.has-kernel-cursor,
+html.has-kernel-cursor * {
+  cursor: none !important;
+}
+
+.dusk-toggle {
+  position: fixed;
+  right: var(--pad);
+  bottom: 1.1rem;
+  z-index: 45;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--husk) 22%, transparent);
+  background: color-mix(in oklab, var(--ink) 72%, transparent);
+  backdrop-filter: blur(10px);
+  color: color-mix(in oklab, var(--husk) 80%, transparent);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.dusk-toggle.is-on {
+  color: var(--ink);
+  background: var(--kernel);
+  border-color: var(--kernel);
+}
+
+/* —— Husk peel —— */
+.peel {
+  position: relative;
+  height: 260vh;
+}
+
+.peel__sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: clip;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 50% 45%, #1a1208, #070504 70%);
+}
+
+.peel__core {
+  position: absolute;
+  width: min(22rem, 58vw);
+  height: min(34rem, 78vh);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.45rem;
+  padding: 1.2rem;
+  border-radius: 48% 48% 42% 42% / 28% 28% 48% 48%;
+  background: linear-gradient(180deg, #2a1c0c, #120c08);
+  box-shadow: 0 0 80px color-mix(in oklab, var(--bloom) 25%, transparent);
+}
+
+.peel__kernel {
+  border-radius: 40% 40% 36% 36% / 48% 48% 40% 40%;
+  background: radial-gradient(120% 90% at 30% 25%, #ffe08a, var(--kernel) 48%, var(--kernel-deep));
+  box-shadow: 0 0 12px color-mix(in oklab, var(--bloom) 28%, transparent);
+  animation: kernelBreath 3.6s var(--ease) infinite;
+  animation-delay: calc(var(--i) * 40ms);
+}
+
+@keyframes kernelBreath {
+  0%,
+  100% {
+    filter: brightness(0.92);
+  }
+  50% {
+    filter: brightness(1.12);
+  }
+}
+
+.peel__husk {
+  position: absolute;
+  top: -8%;
+  bottom: -8%;
+  width: min(46vw, 28rem);
+  z-index: 2;
+  background: linear-gradient(
+    110deg,
+    color-mix(in oklab, var(--seam) 70%, #152010),
+    var(--seam-deep) 45%,
+    #1b2414 78%,
+    color-mix(in oklab, var(--husk-dim) 30%, #1a1810)
+  );
+  box-shadow: inset -2rem 0 3rem color-mix(in oklab, black 40%, transparent);
+}
+
+.peel__husk--left {
+  left: -4%;
+  clip-path: polygon(0 0, 86% 0, 100% 50%, 80% 100%, 0 100%);
+  transform-origin: left center;
+}
+
+.peel__husk--right {
+  right: -4%;
+  clip-path: polygon(14% 0, 100% 0, 100% 100%, 20% 100%, 0 50%);
+  transform-origin: right center;
+  box-shadow: inset 2rem 0 3rem color-mix(in oklab, black 40%, transparent);
+}
+
+.peel__copy {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: var(--pad);
+  max-width: 28rem;
+}
+
+.peel__brand {
+  margin: 0 0 0.6rem;
+  font-family: var(--display);
+  font-size: clamp(2.4rem, 8vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--kernel);
+  text-shadow: 0 0 40px color-mix(in oklab, var(--bloom) 50%, transparent);
+}
+
+.peel__title {
+  margin: 0 0 0.8rem;
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 4.5vw, 3rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  color: var(--husk);
+}
+
+.peel__text {
+  margin: 0 auto;
+  max-width: 34ch;
+  color: color-mix(in oklab, var(--husk) 78%, var(--kernel));
+}
+
+/* —— Orbit —— */
+.band--orbit {
+  background: linear-gradient(180deg, var(--ink), var(--ink-2));
+}
+
+.orbit-layout {
+  align-items: center;
+}
+
+.orbit {
+  min-height: 28rem;
+  display: grid;
+  place-items: center;
+  perspective: 1000px;
+  touch-action: none;
+}
+
+.orbit__stage {
+  position: relative;
+  width: min(22rem, 85%);
+  aspect-ratio: 3 / 4;
+  transform-style: preserve-3d;
+  border-radius: 1.4rem;
+  overflow: hidden;
+  box-shadow:
+    0 30px 80px color-mix(in oklab, black 55%, transparent),
+    0 0 0 1px color-mix(in oklab, var(--seam) 35%, transparent);
+}
+
+.orbit__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.orbit__shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    color-mix(in oklab, white 18%, transparent) 48%,
+    transparent 62%
+  );
+  background-size: 220% 100%;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.orbit__ring {
+  position: absolute;
+  inset: 8%;
+  border-radius: 48% 48% 42% 42% / 30% 30% 50% 50%;
+  border: 1px solid color-mix(in oklab, var(--kernel) 28%, transparent);
+  pointer-events: none;
+}
+
+/* —— Pollen —— */
+.band--pollen {
+  position: relative;
+  min-height: 85svh;
+  display: grid;
+  align-items: end;
+  overflow: clip;
+  padding-bottom: clamp(4rem, 10vh, 7rem);
+}
+
+.pollen__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+  filter: saturate(1.05) contrast(1.05);
+}
+
+.pollen__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.pollen__copy {
+  position: relative;
+  z-index: 2;
+}
+
+/* —— Monument —— */
+.band--monument {
+  background:
+    radial-gradient(60% 50% at 50% 40%, color-mix(in oklab, var(--bloom) 14%, transparent), transparent 70%),
+    #090704;
+  padding-block: clamp(5rem, 14vh, 9rem);
+}
+
+.monument__title {
+  position: relative;
+  margin: 0 0 1.5rem;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.8rem, 10vw, 6rem);
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.monument__ghost {
+  display: block;
+  color: color-mix(in oklab, var(--husk) 18%, transparent);
+}
+
+.monument__fill {
+  position: absolute;
+  inset: 0;
+  display: block;
+  color: var(--kernel);
+  text-shadow: 0 0 50px color-mix(in oklab, var(--bloom) 45%, transparent);
+}
+
+.monument__text {
+  max-width: 36ch;
+}
+
 .foot p {
   margin: 0.2rem 0;
   max-width: 52ch;
@@ -850,11 +1118,17 @@ em {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .kernel-cta__glow {
+  .kernel-cta__glow,
+  .peel__kernel {
     animation: none;
   }
 
   .cursor-glow {
     display: none;
+  }
+
+  html.has-kernel-cursor,
+  html.has-kernel-cursor * {
+    cursor: auto !important;
   }
 }

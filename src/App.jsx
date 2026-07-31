@@ -2,14 +2,19 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import Header from "./components/Header.jsx";
 import Hero from "./components/Hero.jsx";
+import HuskPeel from "./components/HuskPeel.jsx";
 import Anatomy from "./components/Anatomy.jsx";
 import LiveFacade from "./components/LiveFacade.jsx";
+import OrbitCob from "./components/OrbitCob.jsx";
 import CrossSection from "./components/CrossSection.jsx";
 import KernelTheater from "./components/KernelTheater.jsx";
 import Corridor from "./components/Corridor.jsx";
+import PollenField from "./components/PollenField.jsx";
+import Monument from "./components/Monument.jsx";
 import Proof from "./components/Proof.jsx";
 import CursorGlow from "./components/CursorGlow.jsx";
 import Progress from "./components/Progress.jsx";
+import DuskToggle from "./components/DuskToggle.jsx";
 
 export default function App() {
   useEffect(() => {
@@ -17,9 +22,9 @@ export default function App() {
     if (reduce) return undefined;
 
     const lenis = new Lenis({
-      duration: 1.15,
+      duration: 1.2,
       smoothWheel: true,
-      touchMultiplier: 1.1,
+      touchMultiplier: 1.15,
     });
 
     let frame = 0;
@@ -43,20 +48,25 @@ export default function App() {
       <CursorGlow />
       <Progress />
       <Header />
+      <DuskToggle />
       <main id="glowna">
         <Hero />
+        <HuskPeel />
         <Anatomy />
         <LiveFacade />
+        <OrbitCob />
         <CrossSection />
         <KernelTheater />
         <Corridor />
+        <PollenField />
+        <Monument />
         <Proof />
       </main>
       <footer className="foot">
         <p>
-          <strong>KUKURYDZA</strong> · przedstawienie skilla Impeccable · React + Motion
+          <strong>KUKURYDZA</strong> · przedstawienie skilla Impeccable
         </p>
-        <p>Jeden świat wizualny. Zero agri-szablonu. Ziarno jako fasada.</p>
+        <p>Ziarno jako fasada. Scroll jako światło. Atmosfera jako materiał.</p>
       </footer>
     </>
   );

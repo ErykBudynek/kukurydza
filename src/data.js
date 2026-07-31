@@ -1,13 +1,18 @@
 const asset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
 
 export const heroImage = asset("assets/hero-kernel-facade.webp");
+export const cobOrbitImage = asset("assets/cob-orbit.webp");
+export const pollenImage = asset("assets/pollen-field.webp");
 
 export const chapters = [
+  { id: "peel", label: "Peel" },
   { id: "fasada", label: "Fasada" },
   { id: "rzedy", label: "Rzędy" },
+  { id: "orbita", label: "Orbita" },
   { id: "przekroj", label: "Przekrój" },
   { id: "teatr", label: "Teatr" },
-  { id: "korytarz", label: "Korytarz" },
+  { id: "pylek", label: "Pyłek" },
+  { id: "monument", label: "Teza" },
   { id: "dowod", label: "Dowód" },
 ];
 

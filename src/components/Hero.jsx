@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useMotionValue, useScroll, useSpring, useTransform } from "motion/react";
 import { heroImage } from "../data.js";
 
 export default function Hero() {
@@ -11,6 +11,18 @@ export default function Hero() {
   });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
   const veil = useTransform(scrollYProgress, [0, 1], [0, 0.45]);
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const tx = useSpring(mx, { stiffness: 80, damping: 20 });
+  const ty = useSpring(my, { stiffness: 80, damping: 20 });
+
+  const onPointer = (e) => {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    mx.set(((e.clientX - rect.left) / rect.width - 0.5) * 24);
+    my.set(((e.clientY - rect.top) / rect.height - 0.5) * 16);
+  };
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -74,7 +86,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="hero" ref={ref} aria-label="Wejście">
+    <section className="hero" ref={ref} aria-label="Wejście" onPointerMove={onPointer}>
       <div className="hero__stage">
         <motion.img
           className="hero__photo"
@@ -88,7 +100,7 @@ export default function Hero() {
         />
         <canvas className="hero__grid" ref={canvasRef} aria-hidden="true" />
         <motion.div className="hero__dim" style={{ opacity: veil }} aria-hidden="true" />
-        <div className="hero__void">
+        <motion.div className="hero__void" style={{ x: tx, y: ty }}>
           <motion.p
             className="hero__brand"
             initial={{ opacity: 0, y: 24, scale: 0.96 }}
@@ -117,7 +129,7 @@ export default function Hero() {
           </motion.p>
           <motion.a
             className="kernel-cta"
-            href="#teatr"
+            href="#peel"
             initial={{ opacity: 0, y: 12, scale: 0.94 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.58 }}
@@ -125,12 +137,12 @@ export default function Hero() {
             whileTap={{ scale: 0.98 }}
           >
             <span className="kernel-cta__glow" aria-hidden="true" />
-            <span className="kernel-cta__label">Wejdź w kolbę</span>
+            <span className="kernel-cta__label">Otwórz łuskę</span>
           </motion.a>
-        </div>
+        </motion.div>
       </div>
       <p className="hero__hint" aria-hidden="true">
-        Przewiń, żeby zapalić rzędy
+        Przewiń, żeby rozchylić fasadę
       </p>
     </section>
   );
