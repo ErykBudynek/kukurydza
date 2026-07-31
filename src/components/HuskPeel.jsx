@@ -8,13 +8,13 @@ export default function HuskPeel() {
     offset: ["start start", "end end"],
   });
 
-  const leftX = useTransform(scrollYProgress, [0, 0.75], ["0%", "-88%"]);
-  const rightX = useTransform(scrollYProgress, [0, 0.75], ["0%", "88%"]);
-  const leftRot = useTransform(scrollYProgress, [0, 0.75], [0, -14]);
-  const rightRot = useTransform(scrollYProgress, [0, 0.75], [0, 14]);
-  const reveal = useTransform(scrollYProgress, [0.22, 0.58], [0, 1]);
-  const scale = useTransform(scrollYProgress, [0, 0.75], [0.88, 1.08]);
-  const glow = useTransform(scrollYProgress, [0.15, 0.75], [0.35, 1]);
+  const leftX = useTransform(scrollYProgress, [0, 0.28, 0.85], ["0%", "-8%", "-92%"]);
+  const rightX = useTransform(scrollYProgress, [0, 0.28, 0.85], ["0%", "8%", "92%"]);
+  const leftRot = useTransform(scrollYProgress, [0, 0.28, 0.85], [0, -2, -16]);
+  const rightRot = useTransform(scrollYProgress, [0, 0.28, 0.85], [0, 2, 16]);
+  const reveal = useTransform(scrollYProgress, [0.32, 0.62], [0, 1]);
+  const scale = useTransform(scrollYProgress, [0, 0.85], [0.9, 1.1]);
+  const glow = useTransform(scrollYProgress, [0.2, 0.8], [0.45, 1]);
 
   return (
     <section className="peel" id="peel" ref={ref}>
