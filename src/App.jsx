@@ -5,7 +5,7 @@ import Hero from "./components/Hero.jsx";
 import HuskPeel from "./components/HuskPeel.jsx";
 import Anatomy from "./components/Anatomy.jsx";
 import LiveFacade from "./components/LiveFacade.jsx";
-import OrbitCob from "./components/OrbitCob.jsx";
+import Cob3D from "./components/Cob3D.jsx";
 import CrossSection from "./components/CrossSection.jsx";
 import KernelTheater from "./components/KernelTheater.jsx";
 import Corridor from "./components/Corridor.jsx";
@@ -54,7 +54,7 @@ export default function App() {
         <HuskPeel />
         <Anatomy />
         <LiveFacade />
-        <OrbitCob />
+        <Cob3D />
         <CrossSection />
         <KernelTheater />
         <Corridor />

@@ -8,7 +8,7 @@ export const chapters = [
   { id: "peel", label: "Peel" },
   { id: "fasada", label: "Fasada" },
   { id: "rzedy", label: "Rzędy" },
-  { id: "orbita", label: "Orbita" },
+  { id: "orbita", label: "3D" },
   { id: "przekroj", label: "Przekrój" },
   { id: "teatr", label: "Teatr" },
   { id: "pylek", label: "Pyłek" },
