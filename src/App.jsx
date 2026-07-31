@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
+import { setLenis } from "./scroll.js";
 import Header from "./components/Header.jsx";
 import Hero from "./components/Hero.jsx";
 import HuskPeel from "./components/HuskPeel.jsx";
@@ -19,13 +20,17 @@ import DuskToggle from "./components/DuskToggle.jsx";
 export default function App() {
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return undefined;
+    if (reduce) {
+      setLenis(null);
+      return undefined;
+    }
 
     const lenis = new Lenis({
       duration: 1.2,
       smoothWheel: true,
       touchMultiplier: 1.15,
     });
+    setLenis(lenis);
 
     let frame = 0;
     const raf = (time) => {
@@ -36,6 +41,7 @@ export default function App() {
 
     return () => {
       cancelAnimationFrame(frame);
+      setLenis(null);
       lenis.destroy();
     };
   }, []);

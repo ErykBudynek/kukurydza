@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from "motion/react";
 import { heroImage } from "../data.js";
+import { scrollToPeelOpen } from "../scroll.js";
 
 export default function Hero() {
   const ref = useRef(null);
@@ -130,6 +131,7 @@ export default function Hero() {
           <motion.a
             className="kernel-cta"
             href="#peel"
+            onClick={scrollToPeelOpen}
             initial={{ opacity: 0, y: 12, scale: 0.94 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.58 }}
