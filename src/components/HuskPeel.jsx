@@ -13,8 +13,10 @@ export default function HuskPeel() {
   const leftRot = useTransform(scrollYProgress, [0, 0.28, 0.85], [0, -2, -16]);
   const rightRot = useTransform(scrollYProgress, [0, 0.28, 0.85], [0, 2, 16]);
   const reveal = useTransform(scrollYProgress, [0.32, 0.62], [0, 1]);
-  const scale = useTransform(scrollYProgress, [0, 0.85], [0.9, 1.1]);
-  const glow = useTransform(scrollYProgress, [0.2, 0.8], [0.45, 1]);
+  const scale = useTransform(scrollYProgress, [0, 0.85], [1, 1.03]);
+  const glow = useTransform(scrollYProgress, [0.15, 0.75], [0.55, 1]);
+
+  const kernelCount = 140;
 
   return (
     <section className="peel" id="peel" ref={ref}>
@@ -24,7 +26,7 @@ export default function HuskPeel() {
           style={{ scale, opacity: glow }}
           aria-hidden="true"
         >
-          {Array.from({ length: 70 }).map((_, i) => (
+          {Array.from({ length: kernelCount }).map((_, i) => (
             <span key={i} className="peel__kernel" style={{ "--i": i }} />
           ))}
         </motion.div>
