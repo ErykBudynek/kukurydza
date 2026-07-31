@@ -42,13 +42,21 @@ Display ceiling: 6rem. Tracking floor: −0.03em on brand.
 - Canvas ambient shimmer overlays the hero photo
 - Illustrative stats labeled as demonstration, not agronomy claims
 
+## Stack
+
+Vite + React + Motion + Lenis. Static export to GitHub Pages (`/kukurydza/`).
+
 ## Motion
 
-- Scroll lights facade rows (one authored intent)
-- CTA glow pulse
-- Canvas kernel shimmer (disabled under prefers-reduced-motion)
-- Content always visible by default (no opacity-gated reveals)
+- Lenis smooth scroll
+- Hero entrance + parallax photo
+- Scroll-lit facade cells
+- Interactive cross-section layers
+- Kernel theater with AnimatePresence
+- Horizontal corridor scrub
+- Cursor glow (fine pointer only)
+- Top progress bar
 
 ## Surfaces
 
-- `index.html` — Experience mode showcase landing
+- `src/App.jsx` — Experience mode showcase landing (turbo React pass)

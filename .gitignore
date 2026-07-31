@@ -4,6 +4,7 @@
 Thumbs.db
 node_modules/
 dist/
+_preview/
 css/
 js/
 assets/
